@@ -109,12 +109,12 @@ class Client {
                     state: 'PREPARING' // 或 ABOUT_TO_START
                 },
                 devices: {
-                    '124B00252FAB': {
+                    '1C9DC2585C04': {
                         groupId: 2453,
                         state: 'STANDBY', // 或 READY_TO_GO
                         lastSeen: 1653994875
                     },
-                    '124B00252FAC': {
+                    '1C9DC2585BB0': {
                         groupId: 2453,
                         state: 'STANDBY', // 或 READY_TO_GO
                         lastSeen: 1653994875
@@ -135,7 +135,7 @@ class Client {
             subType: 'GROUPING',
             data: {
                 groupId: 2453, // 2 byte 0-65535
-                devices: ['124B00252FAB', '124B00252FAC']
+                devices: ['1C9DC2585C04', '1C9DC2585BB0']
             }
         }
         let client = Client.createClient(ALIYUN.ACCESS_KEY, ALIYUN.ACCESS_KEY_SECRET);

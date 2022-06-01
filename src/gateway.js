@@ -66,12 +66,12 @@ function reportScanData() {
                 state: 'PREPARING' // 或 ABOUT_TO_START
             },
             devices: {
-                '124B00252FAB': {
+                '1C9DC2585C04': {
                     groupId: 2453,
                     state: 'STANDBY', // 或 READY_TO_GO
                     lastSeen: 1653994875
                 },
-                '124B00252FAC': {
+                '1C9DC2585BB0': {
                     groupId: 2453,
                     state: 'STANDBY', // 或 READY_TO_GO
                     lastSeen: 1653994875
@@ -79,7 +79,7 @@ function reportScanData() {
             }
         }
     }
-    console.log("===postData\n topic=" + topic)
+    console.log("===Report Scan Data\n topic=" + topic)
     console.log(payloadJson)
     return JSON.stringify(payloadJson);
 }
