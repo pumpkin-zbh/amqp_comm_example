@@ -100,7 +100,7 @@ class Client {
     // 发送分组指令
     static async publishGroupsOrder() {
         const topic = "get";
-        const sn = "MC987654321A";
+        const sn = ALIYUN.DEVICE_NAME;
         const data = {
             type: 'REPORT',
             subType: 'SCAN',
@@ -129,7 +129,7 @@ class Client {
     // 发送跳绳指令
     static async publishJumpingOrder() {
         const topic = "get";
-        const sn = "MC987654321A";
+        const sn = ALIYUN.DEVICE_NAME;
         const data = {
             type: 'SET',
             subType: 'GROUPING',
