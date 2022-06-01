@@ -1,0 +1,23 @@
+{
+    "GROUPING": {
+        "type": "REPORT",
+        "subType": "GROUPING",
+        "data": {
+            "gateway": {
+                "state": "PREPARING"
+            },
+            "success": [ "124B00252FAB", "124B00252FAC" ],
+            "failure": [ "124B00252F00" ]
+        }
+    },
+    "START_JUMP": {
+        "type": "ACTION",
+        "subType": "START_JUMP",
+        "data": {
+            "groupId": 2453,
+            "mode": "COUNTDOWN_TIMER",
+            "duration": 60,
+            "targetNumber": 100
+        }
+    }
+}

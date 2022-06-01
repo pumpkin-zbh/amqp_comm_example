@@ -33,7 +33,9 @@ const tea_console_1 = __importDefault(require("@alicloud/tea-console"));
 const $tea = __importStar(require("@alicloud/tea-typescript"));
 const { base64encode } = require("nodejs-base64")
 const { ALIYUN } = require("./config/constant.js");
-
+const fs = require("fs");
+const path = require('path')
+const jsonFile = path.resolve(__dirname, './config/client_report.json')
 class Client {
     /**
      * 使用AK&SK初始化账号Client
@@ -101,45 +103,22 @@ class Client {
     static async publishGroupsOrder() {
         const topic = "get";
         const sn = ALIYUN.DEVICE_NAME;
-        const data = {
-            type: 'REPORT',
-            subType: 'SCAN',
-            data: {
-                gateway: {
-                    state: 'PREPARING' // 或 ABOUT_TO_START
-                },
-                devices: {
-                    '1C9DC2585C04': {
-                        groupId: 2453,
-                        state: 'STANDBY', // 或 READY_TO_GO
-                        lastSeen: 1653994875
-                    },
-                    '1C9DC2585BB0': {
-                        groupId: 2453,
-                        state: 'STANDBY', // 或 READY_TO_GO
-                        lastSeen: 1653994875
-                   }
-                }
-           }
-        }
+        let rawdata = fs.readFileSync(jsonFile);
+        let person = JSON.parse(rawdata);
+        console.log(person.GROUPING)
         let client = Client.createClient(ALIYUN.ACCESS_KEY, ALIYUN.ACCESS_KEY_SECRET);
-        await Client.BatchPubSample(client, ALIYUN.PRODUCT_KEY, ALIYUN.IOT_INSTANCE_ID, base64encode(JSON.stringify(data)), topic, sn);
+        await Client.BatchPubSample(client, ALIYUN.PRODUCT_KEY, ALIYUN.IOT_INSTANCE_ID, base64encode(JSON.stringify(person.GROUPING)), topic, sn);
     }
 
     // 发送跳绳指令
     static async publishJumpingOrder() {
         const topic = "get";
         const sn = ALIYUN.DEVICE_NAME;
-        const data = {
-            type: 'SET',
-            subType: 'GROUPING',
-            data: {
-                groupId: 2453, // 2 byte 0-65535
-                devices: ['1C9DC2585C04', '1C9DC2585BB0']
-            }
-        }
+        let rawdata = fs.readFileSync(jsonFile);
+        let person = JSON.parse(rawdata);
+        console.log(person.START_JUMP)
         let client = Client.createClient(ALIYUN.ACCESS_KEY, ALIYUN.ACCESS_KEY_SECRET);
-        await Client.BatchPubSample(client, ALIYUN.PRODUCT_KEY, ALIYUN.IOT_INSTANCE_ID, base64encode(JSON.stringify(data)), topic, sn);
+        await Client.BatchPubSample(client, ALIYUN.PRODUCT_KEY, ALIYUN.IOT_INSTANCE_ID, base64encode(JSON.stringify(person.START_JUMP)), topic, sn);
     }
 }
 exports.default = Client;

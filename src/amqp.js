@@ -27,19 +27,19 @@ container.on('message', function (context) {
     let topic = msg.application_properties.topic;
     let content = JSON.parse(Buffer.from(msg.body.content).toString());
     if (topic.indexOf('/user/update') !== -1) {
-        console.log("Topic: " + topic)
+        console.log("\nTopic: " + topic)
         if (content.subType === "SCAN") {
             // 网关持续上传周围的跳绳清单和状态、配置信息
-            console.log("DATA:", content);
+            console.log("DATA:", JSON.stringify(content));
         } else if (content.subType === "JUMPING") {
             // 网关上传周围的跳绳的进度
-            console.log("Data:", content);
+            console.log("Data:", JSON.stringify(content));
         } else if (content.subType === "GROUPING") {
             // 网关汇报分组结果
-            console.log("Data:", content);
+            console.log("Data:", JSON.stringify(content));
         } else if (content.subType === "START_JUMP") {
             // 网关汇报跳绳即将开始
-            console.log("Data:", content)
+            console.log("Data:", JSON.stringify(content))
         }
     } else {
         console.warn("Unsupported topics", topic)
