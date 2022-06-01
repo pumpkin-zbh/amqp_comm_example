@@ -95,7 +95,7 @@ class Client {
         } else if (args[0] === "JUMP") {
             await this.publishJumpingOrder()
         } else {
-            console.warn("Please enter GROUP | JUMP")
+            console.warn("Please enter 'GROUP' or 'JUMP'")
         }
     }
 
