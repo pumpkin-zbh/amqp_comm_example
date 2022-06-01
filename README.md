@@ -20,6 +20,7 @@
 - 阿里云物联网云端开发指南
   + https://help.aliyun.com/document_detail/386371.html
 #### 文件目录
+```
 .
 ├── package.json
 └── src
@@ -30,3 +31,4 @@
         ├── client_report.json # 客户系统发布配置
         └── constant.js # 阿里云IOT相关配置信息
 
+```
