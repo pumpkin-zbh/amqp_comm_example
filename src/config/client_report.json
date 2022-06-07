@@ -1,13 +1,10 @@
 {
     "GROUPING": {
-        "type": "REPORT",
+        "type": "SET",
         "subType": "GROUPING",
         "data": {
-            "gateway": {
-                "state": "PREPARING"
-            },
-            "success": [ "124B00252FAB", "124B00252FAC" ],
-            "failure": [ "124B00252F00" ]
+            "groupId": 2453,
+            "devices": [ "124B00252FAB", "124B00252FAC" ]
         }
     },
     "START_JUMP": {
