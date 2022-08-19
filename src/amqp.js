@@ -1,6 +1,7 @@
 const container = require('rhea');
 const crypto = require('crypto');
-const { ALIYUN, PORT, TRANSPORT, RECONNECT, IDLE_TIME_OUT} = require("./config/constant")
+const { ALIYUN, PORT, TRANSPORT, RECONNECT, IDLE_TIME_OUT} = require("./config/constant");
+const console = require('console');
 
 //创建Connection。
 const connection = container.connect({
@@ -25,7 +26,7 @@ container.on('message', function (context) {
     let  msg = context.message;
     let messageId = msg.message_id;
     let topic = msg.application_properties.topic;
-    let content = JSON.parse(Buffer.from(msg.body.content).toString());
+    let content =JSON.parse(Buffer.from(msg.body.content).toString().replace(/\'/g, '"'));
     if (topic.indexOf('/user/update') !== -1) {
         console.log("\nTopic: " + topic)
         if (content.subType === "SCAN") {

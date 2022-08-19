@@ -3,18 +3,21 @@
         "type": "SET",
         "subType": "GROUPING",
         "data": {
-            "groupId": 2453,
-            "devices": [ "124B00252FAB", "124B00252FAC" ]
+            "groupId": 50,
+            "groupOvertime":120,
+            "devices":["F8E02F3C0339", "F7742E1E0339", "F5C62F060339", "F84627130339", "F6CA2E790339", "F578271D0339", "F5F377490439", "F9102F310339", "FB2B2E3A0339", "F62A315C0339", "F860301D0339", "FAF42E680339", "F9C075330439", "F62331270339", "F50325200339", "F7622F080339", "F82230140339", "F64431570339", "F6F827300339", "F6CF32180339", "F63A2E1D0339", "F7BC2E330339", "F73F27390339", "F681313A0339", "F63830370339", "FAA62E7C0339", "F8722F290339", "FC15315F0339", "F7732F540339", "F7C175460439", "F7A6250E0339", "F8FA2F750339", "F7FC2E550339", "F6BD2D0B0339", "F6B42F1C0339", "F6D32F720339", "F6AF2F6B0339", "F60D2B150339", "F96A30180339", "F9A02D440339", "F9CF2D300339", "F3D9314D0339", "F59D26260339", "F4D32F300339", "F8DB2F0C0339", "F8792F050339", "F6542E4F0339", "F97A2E290339", "F52F30220339", "F7DC307F0339"]
         }
     },
     "START_JUMP": {
         "type": "ACTION",
         "subType": "START_JUMP",
         "data": {
-            "groupId": 2453,
+            "groupId": 25,
+            "broadcastDuration":6,
             "mode": "COUNTDOWN_TIMER",
-            "duration": 60,
-            "targetNumber": 100
+            "duration": 180,
+            "targetNumber": 90,
+            "jumpDelayTime":5
         }
     }
 }
